@@ -12,6 +12,7 @@ import com.example.hello.myapplication.db.DaoImpl;
 import com.example.hello.myapplication.db.DbHelper;
 import com.example.hello.myapplication.db.Person;
 import com.example.hello.myapplication.db.User;
+import com.example.hello.myapplication.http.DataBean;
 import com.example.hello.myapplication.http.RequestManager;
 import com.example.hello.myapplication.http.exception.OkHttpException;
 import com.example.hello.myapplication.http.listener.DisposeDataListener;
@@ -92,9 +93,10 @@ public class MainActivity extends AppCompatActivity {
 
         }*/
 
-        RequestManager.requestHomeData(User.class, new DisposeDataListener<User>() {
+        RequestManager.requestHomeData(DataBean.class, new DisposeDataListener<DataBean>() {
             @Override
-            public void onSuccess(User user) {
+            public void onSuccess(DataBean user) {
+                user.ads.toString();
 
             }
 

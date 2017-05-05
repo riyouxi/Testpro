@@ -1,3 +1,4 @@
+/*
 package com.example.hello.myapplication.db;
 
 
@@ -13,7 +14,7 @@ import org.greenrobot.greendao.query.QueryBuilder;
 
 import java.util.List;
 
-public abstract class AbstractDatabaseManager<M,K> implements IDatabase<M,K> {
+public abstract class AbstractDatabaseManager<M,K> implements Dao<M,K> {
 
     private static final String DB_NAME ="luow.db";
     private static DaoMaster.DevOpenHelper mHelper = null;
@@ -29,7 +30,9 @@ public abstract class AbstractDatabaseManager<M,K> implements IDatabase<M,K> {
         return new DaoMaster.DevOpenHelper(context, dataBaseName, null);
     }
 
-    /**     * Query for writable DB     */
+    */
+/**     * Query for writable DB     *//*
+
     protected static void openWritableDb() throws SQLiteException {
         daoSession = new DaoMaster(getWritableDatabase()).newSession();
     }
@@ -42,9 +45,11 @@ public abstract class AbstractDatabaseManager<M,K> implements IDatabase<M,K> {
         return mHelper.getReadableDatabase();
     }
 
-    /**
+    */
+/**
      * 只关闭helper就好,看源码就知道helper关闭的时候会关闭数据库
-     */
+     *//*
+
     public static void closeDbConnections() {
         if (mHelper != null) {
             mHelper.close();
@@ -214,3 +219,4 @@ public abstract class AbstractDatabaseManager<M,K> implements IDatabase<M,K> {
 
     abstract AbstractDao<M,K> getAbstracDao();
 }
+*/

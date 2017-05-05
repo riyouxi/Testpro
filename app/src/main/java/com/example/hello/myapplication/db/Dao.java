@@ -6,13 +6,13 @@ import org.greenrobot.greendao.query.QueryBuilder;
 
 import java.util.List;
 
-public interface IDatabase<M,K> {
+public interface Dao<M,ID> {
 
     boolean insert(M m);
 
     boolean delete(M m);
 
-    boolean deleteByKey(K key);
+    boolean deleteByKey(String key);
 
     boolean deleteList(List<M> mList);
 
@@ -24,11 +24,8 @@ public interface IDatabase<M,K> {
 
     boolean update(M m);
 
-   // boolean updateInInTx(M...m);
-
     boolean updateList(List<M> mList);
 
-    M selectByPrimarKey(K key);
 
     List<M> loadAll();
 

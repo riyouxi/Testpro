@@ -11,7 +11,7 @@ public class DaoManager {
     private volatile static DaoManager mInstance;
     private static DaoMaster mDaoMaster;
     private static DaoSession mDaoSession;
-    private static DaoMaster.DevOpenHelper mHelper;
+    private static DevOpenHelper mHelper;
     private static  Context mContext;
 
     /**
@@ -43,7 +43,7 @@ public class DaoManager {
      */
     public DaoMaster getDaoMaster(){
         if(mDaoMaster == null){
-            mHelper = new DaoMaster.DevOpenHelper(mContext,DB_NAME,null);
+            mHelper = new DevOpenHelper(mContext,DB_NAME,null);
             mDaoMaster = new DaoMaster(mHelper.getWritableDatabase());
         }
         return mDaoMaster;

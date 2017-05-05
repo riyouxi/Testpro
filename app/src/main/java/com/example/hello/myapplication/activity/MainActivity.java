@@ -6,8 +6,10 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.example.hello.myapplication.R;
+import com.example.hello.myapplication.db.Dao;
 import com.example.hello.myapplication.db.DaoImpl;
 import com.example.hello.myapplication.db.DbHelper;
+import com.example.hello.myapplication.db.Person;
 import com.example.hello.myapplication.db.User;
 
 import org.greenrobot.greendao.AbstractDao;
@@ -23,8 +25,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main) ;
 
+        DaoImpl<Person,String> daoImpl = new DaoImpl<>(Person.class);
+        Person person = new Person();
+        person.setName("刘狗");
+        daoImpl.insert(person);
+         List<Person> data =  daoImpl.loadAll();
+        Log.e("test",data.get(0).getName());
 
-        try {
+
+        /*try {
             new Thread(new Runnable() {
                 @Override
                 public void run() {
@@ -70,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
 
         }catch (SQLiteException e){
 
-        }
+        }*/
     }
 
     @Override

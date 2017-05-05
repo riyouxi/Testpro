@@ -4,6 +4,7 @@ import android.database.sqlite.SQLiteException;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.example.hello.myapplication.R;
 import com.example.hello.myapplication.db.Dao;
@@ -11,11 +12,21 @@ import com.example.hello.myapplication.db.DaoImpl;
 import com.example.hello.myapplication.db.DbHelper;
 import com.example.hello.myapplication.db.Person;
 import com.example.hello.myapplication.db.User;
+import com.example.hello.myapplication.http.RequestManager;
+import com.example.hello.myapplication.http.exception.OkHttpException;
+import com.example.hello.myapplication.http.listener.DisposeDataListener;
 
 import org.greenrobot.greendao.AbstractDao;
 import org.greenrobot.greendao.query.QueryBuilder;
 
+import java.io.IOException;
 import java.util.List;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -80,6 +91,20 @@ public class MainActivity extends AppCompatActivity {
         }catch (SQLiteException e){
 
         }*/
+
+        RequestManager.requestHomeData(User.class, new DisposeDataListener<User>() {
+            @Override
+            public void onSuccess(User user) {
+
+            }
+
+            @Override
+            public void onFailure(OkHttpException e) {
+
+            }
+        });
+
+
     }
 
     @Override

@@ -28,8 +28,6 @@ import java.util.Collection;
 import java.util.Map;
 
 /**
- * Create by h4de5ing 2016/5/7 007
- * checked
  */
 
 //        toJson 对象转json

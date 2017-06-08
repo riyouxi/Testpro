@@ -1,9 +1,5 @@
 package com.example.hello.myapplication.http;
 
-/**
- * Created by gechuanguang on 2017/2/18.
- * 邮箱：1944633835@qq.com
- */
 
 public class UrlConstant {
 

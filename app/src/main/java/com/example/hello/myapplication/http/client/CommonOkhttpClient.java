@@ -17,8 +17,6 @@ import okhttp3.Request;
 
 
 /**
- * Created by gechuanguang on 2017/2/17.
- * 邮箱：1944633835@qq.com
  * @function 创建okHttpclient对象，并且配置支持https，以及发送请求
  */
 public class CommonOkhttpClient {

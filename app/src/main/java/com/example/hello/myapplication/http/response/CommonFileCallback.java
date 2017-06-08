@@ -20,10 +20,7 @@ import okhttp3.Response;
  * *******************************************************
  *
  * @文件名称：CommonFileCallback.java
- * @文件作者：renzhiqiang
- * @创建时间：2016年1月23日 下午5:32:01
  * @文件描述：专门处理文件下载回调
- * @修改历史：2016年1月23日创建初始版本 ********************************************************
  */
 public class CommonFileCallback implements Callback {
     /**

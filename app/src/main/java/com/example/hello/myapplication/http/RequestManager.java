@@ -13,9 +13,6 @@ import com.example.hello.myapplication.http.response.CommonJsonCallback;
 import java.io.File;
 
 /**
- * Created by gechuanguang on 2017/2/22.
- * 邮箱：1944633835@qq.com
- *
  * @Function 来管理一些网络请求
  */
 public class RequestManager {

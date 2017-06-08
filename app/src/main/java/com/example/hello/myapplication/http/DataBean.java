@@ -2,10 +2,6 @@ package com.example.hello.myapplication.http;
 
 import java.util.List;
 
-/**
- * Created by gechuanguang on 2017/2/22.
- * 邮箱：1944633835@qq.com
- */
 
 public class DataBean {
 

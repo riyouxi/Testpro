@@ -11,8 +11,6 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 
 /**
- * Created by gechuanguang on 2017/2/17.
- * 邮箱：1944633835@qq.com
  * @function 接收请求参数，为我们生成Request对象
  */
 public class CommonRequest {

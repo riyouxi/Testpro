@@ -13,7 +13,9 @@ import com.example.hello.myapplication.db.DbHelper;
 import com.example.hello.myapplication.db.Person;
 import com.example.hello.myapplication.db.User;
 import com.example.hello.myapplication.http.DataBean;
+import com.example.hello.myapplication.http.OpsRequest;
 import com.example.hello.myapplication.http.RequestManager;
+import com.example.hello.myapplication.http.TestRequest;
 import com.example.hello.myapplication.http.exception.OkHttpException;
 import com.example.hello.myapplication.http.listener.DisposeDataListener;
 
@@ -93,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
 
         }*/
 
-        RequestManager.requestHomeData(DataBean.class, new DisposeDataListener<DataBean>() {
+        /*RequestManager.requestHomeData(DataBean.class, new DisposeDataListener<DataBean>() {
             @Override
             public void onSuccess(DataBean user) {
                 user.ads.toString();
@@ -104,7 +106,27 @@ public class MainActivity extends AppCompatActivity {
             public void onFailure(OkHttpException e) {
 
             }
+        });*/
+        String url =  "https://github.com/hongyangAndroid";
+        OpsRequest<TestRequest,DataBean> excutor = OpsRequest.create(url);
+        TestRequest test = new TestRequest();
+        test.setAge(18);
+        test.setName("test");
+        excutor.requestValue(test)
+                .setResponseValue(DataBean.class)
+                .excute(new DisposeDataListener<DataBean>() {
+            @Override
+            public void onSuccess(DataBean dataBean) {
+
+            }
+
+            @Override
+            public void onFailure(OkHttpException e) {
+
+            }
         });
+
+
 
 
     }

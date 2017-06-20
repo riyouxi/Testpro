@@ -1,6 +1,12 @@
 package com.example.hello.myapplication.http.request;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
+
 import java.io.File;
+import java.lang.reflect.Field;
+import java.util.HashMap;
 import java.util.Map;
 
 import okhttp3.FormBody;
@@ -14,16 +20,22 @@ import okhttp3.RequestBody;
  * @function 接收请求参数，为我们生成Request对象
  */
 public class CommonRequest {
+
+
     /**
      * @param url
      * @param params
      * @return 返回一个创建好post的Request对象
      */
-    public  static Request createPostRequest(String  url, RequestParams params){
-
+    public  static Request createPostRequest(String  url, Object obj){
+        Gson gson = new Gson();
+        String json = gson.toJson(obj);
+        GsonBuilder gb = new GsonBuilder();
+        Gson g = gb.create();
+        Map<String, String> params = g.fromJson(json, new TypeToken<Map<String, String>>() {}.getType());
         FormBody.Builder mFormBodybuilder = new FormBody.Builder();
-        if(params!=null){
-            for(Map.Entry<String,String> entry: params.urlParams.entrySet()){
+        if(params!=null && params.size()>0){
+            for(Map.Entry<String,String> entry: params.entrySet()){
                 // 将请求参数逐一添加到请求体中
                 mFormBodybuilder.add(entry.getKey(),entry.getValue());
             }
